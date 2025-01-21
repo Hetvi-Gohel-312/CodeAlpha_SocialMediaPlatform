@@ -17,8 +17,8 @@ A social media platform that allows users to sign up, log in, create posts, shar
 
 ## Installation and Setup
 1. Clone the repository:
-   -git clone https://github.com/Hetvi-Gohel-312/social-media-platform.git
-   -cd social-media-platform
+   - git clone https://github.com/Hetvi-Gohel-312/social-media-platform.git
+   - cd social-media-platform
 
 2. Install dependencies:
    npm install
