@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notifications - Social Media</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Reset some default styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Basic page layout */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f2f5;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+        }
+
+        /* Container for posts */
+        .container {
+            max-width: 800px;
+            height: auto;
+            margin: auto;
+            width: 100%;
+            /* Adjust width to fill remaining space */
+            justify-content: space-around;
+        }
+
+        /* Posts Grid Layout */
+        .posts {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        /* Post Card */
+        .post {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .post-header {
+            display: flex;
+            align-items: center;
+            padding: 15px;
+        }
+
+        .avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+
+        .username {
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        /* Post content */
+        .post-content {
+            padding: 15px;
+        }
+
+        .likes-count {
+            font-weight: bold;
+            color: #e1306c;
+            margin-bottom: 10px;
+        }
+
+        .post-description {
+            font-size: 14px;
+            color: #555;
+        }
+
+        /* Post actions section */
+        .post-actions {
+            display: flex;
+            justify-content: space-around;
+            padding: 10px;
+            border-top: 1px solid #ddd;
+        }
+
+        button {
+            background-color: #e1306c;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #d31356;
+        }
+
+        /* Post image styling */
+        .post-image {
+            width: 100%;
+            height: auto;
+        }
+
+        /* Floating Button for Create Post */
+        .floating-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #e1306c;
+            color: white;
+            border-radius: 50%;
+            padding: 15px;
+            font-size: 24px;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s ease;
+        }
+
+        .floating-btn:hover {
+            background-color: #d31356;
+        }
+
+        /* Notifications Container - Centered */
+        .notifications-container {
+            width: 90%;
+            /* Adjust the width as needed */
+            max-width: 800px;
+            /* Limit the maximum width */
+            padding: 20px;
+            background-color: white;
+            /* Light background for notifications */
+            border-radius: 10px;
+            margin-left: 30%;
+            /* This will push the container to the right */
+            margin-right: 0;
+            /* No margin on the right side */
+            height: auto;
+            /* Adjusts height based on content */
+            margin-top: 230px;
+            /* Optional: Adds space from the top */
+        }
+
+        /* Heading styling */
+        .notifications-container h2 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #e1306c;
+            ;
+            width: 100%;
+            /* Ensure the heading takes up the full available width */
+        }
+
+        /* Individual Notification Styling */
+        .notification {
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        .notification p {
+            margin: 0;
+            font-size: 16px;
+        }
+
+        .notification a {
+            display: inline-block;
+            margin-top: 10px;
+            font-size: 14px;
+            color: #4a52c5;
+            text-decoration: none;
+        }
+
+        .notification a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="logo">Socialize</div>
+        <ul>
+            <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+            <li><a href="message.html"><i class="fas fa-envelope"></i> Messages</a></li>
+            <li><a href="notification.html" class="active"><i class="fas fa-bell"></i> Notification</a></li>
+            <li><a href="profile.html"><i class="fas fa-user"></i> Profile</a></li>
+            <li><a href="settings.html"><i class="fas fa-cog"></i> Settings</a></li>
+            
+        </ul>
+    </nav>
+
+
+    <!-- Notifications Section -->
+    <div class="notifications-container">
+        <h2>Notifications</h2>
+
+        <!-- Notification 1 -->
+        <div class="notification">
+            <p><strong>InnerGlow✨</strong> liked your post</p>
+            <a href="#">View Post</a>
+        </div>
+
+        <!-- Notification 2 -->
+        <div class="notification">
+            <p><strong>UrbanStyleHub</strong> commented on your post</p>
+            <a href="#">View Post</a>
+        </div>
+
+        <!-- Notification 3 -->
+        <div class="notification">
+            <p><strong>ClassicManFits</strong> started following you</p>
+            <a href="#">View Profile</a>
+        </div>
+
+        <!-- Notification 4 -->
+        <div class="notification">
+            <p><strong>SelfSoulJourney</strong> liked your comment</p>
+            <a href="#">View Comment</a>
+        </div>
+
+        <!-- Notification 5 -->
+        <div class="notification">
+            <p><strong>PastelFashionista💫</strong> sent you a friend request</p>
+            <a href="#">View Request</a>
+        </div>
+    </div>
+
+    <script>
+        // Function to dynamically load posts (for other pages)
+        async function loadPosts() {
+            try {
+                const response = await fetch('http://localhost:3000/posts');
+                const posts = await response.json();
+
+                const postsContainer = document.getElementById('postsContainer');
+                postsContainer.innerHTML = ''; // Clear existing posts
+
+                posts.forEach(post => {
+                    const newPost = document.createElement('div');
+                    newPost.classList.add('post');
+
+                    newPost.innerHTML = `
+                        <div class="post-header">
+                            <img src="https://via.placeholder.com/40" alt="User Avatar" class="avatar">
+                            <p class="username">${post.username}</p>
+                        </div>
+                        <img src="${post.postImage || 'https://via.placeholder.com/500x500'}" alt="Post Image" class="post-image">
+                        <div class="post-actions">
+                            <button onclick="likePost(this)">Like</button>
+                            <button onclick="commentPost()">Comment</button>
+                        </div>
+                        <div class="post-content">
+                            <p class="likes-count">${post.likes} Likes</p>
+                            <p class="post-description">${post.description}</p>
+                        </div>
+                    `;
+
+                    postsContainer.appendChild(newPost);
+                });
+            } catch (error) {
+                console.error('Error fetching posts:', error);
+            }
+        }
+
+        // Load posts when the page loads
+        window.onload = loadPosts;
+
+        // Function for liking a post
+        function likePost(button) {
+            const postContent = button.parentElement.nextElementSibling; // Get post content
+            const likesCount = postContent.querySelector('.likes-count'); // Find likes count element
+
+            let currentLikes = parseInt(likesCount.textContent); // Parse current likes
+            likesCount.textContent = `${++currentLikes} Likes`; // Increment and update text
+        }
+
+        // Function for commenting on a post
+        function commentPost() {
+            const comment = prompt("Enter your comment:");
+            if (comment) alert("Commented: " + comment);
+        }
+    </script>
+</body>
+
+</html>

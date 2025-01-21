@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Messages</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    /* Reset some default styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* Basic page layout */
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f2f5;
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+    }
+
+    .message-container {
+      max-width: 800px;
+      height: auto;
+      padding: 20px;
+      background-color: white;
+      /* Dark pink theme background */
+      border-radius: 10px;
+      width: 100%;
+      /* Ensure the message container takes up the full available width */
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      /* Optional: Add a shadow for a more polished look */
+      margin: auto;
+    }
+
+    .message-header h2 {
+      text-align: center;
+      font-size: 24px;
+      color: #e1306c;
+      /* Dark Pink for the header */
+      margin-bottom: 20px;
+    }
+
+    .message-list {
+      list-style: none;
+      padding: 0;
+    }
+
+    .message {
+      display: flex;
+      align-items: center;
+      margin-bottom: 20px;
+      padding: 15px;
+      background-color: white;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+    }
+
+    .message-avatar {
+      margin-right: 15px;
+    }
+
+    .avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+    }
+
+    .message-content {
+      flex-grow: 1;
+    }
+
+    .message-username {
+      font-weight: bold;
+      color: #ff0066;
+      /* Dark Pink username */
+    }
+
+    .message-text {
+      font-size: 16px;
+      color: #000000;
+      margin: 5px 0;
+    }
+
+    .message-time {
+      font-size: 12px;
+      color: #333333;
+    }
+
+    .message-input {
+      display: flex;
+      align-items: center;
+      margin-top: 20px;
+    }
+
+    .input-field {
+      width: 80%;
+      padding: 10px;
+      font-size: 16px;
+      border: 1px solid white4;
+      border-radius: 5px;
+      background-color: #f0f0f0;
+      ;
+      color: #000;
+    }
+
+    .send-button {
+      padding: 10px 20px;
+      margin-left: 10px;
+      background-color: #ff0066;
+      /* Dark Pink for the send button */
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .send-button:hover {
+      background-color: #ff3385;
+      /* Lighter pink on hover */
+    }
+  </style>
+</head>
+
+<body>
+  <nav class="navbar">
+    <div class="logo">Socialize</div>
+    <ul>
+      <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+      <li><a href="message.html" class="active"><i class="fas fa-envelope"></i> Messages</a></li>
+      <li><a href="notification.html"><i class="fas fa-bell"></i> Notification</a></li>
+      <li><a href="profile.html"><i class="fas fa-user"></i> Profile</a></li>
+      <li><a href="settings.html"><i class="fas fa-cog"></i> Settings</a></li>
+      
+    </ul>
+  </nav>
+
+
+  <div class="message-container">
+    <div class="message-header">
+      <h2>Messages</h2>
+    </div>
+
+    <div class="message-list" id="message-list">
+      <div class="message">
+        <div class="message-avatar">
+          <img src="dp 3.jpg" alt="User Avatar" class="avatar">
+        </div>
+        <div class="message-content">
+          <p class="message-username">PastelFashionista💫</p>
+          <p class="message-text">Hey! How's it going?</p>
+          <p class="message-time">10 minutes ago</p>
+        </div>
+      </div>
+
+      <div class="message">
+        <div class="message-avatar">
+          <img src="dp 2.jpg" alt="User Avatar" class="avatar">
+        </div>
+        <div class="message-content">
+          <p class="message-username">UrbanStyleHub</p>
+          <p class="message-text">Are you free to chat later?</p>
+          <p class="message-time">30 minutes ago</p>
+        </div>
+      </div>
+
+      <div class="message">
+        <div class="message-avatar">
+          <img src="dp 1.jpg" alt="User Avatar" class="avatar">
+        </div>
+        <div class="message-content">
+          <p class="message-username">SelfSoulJourney</p>
+          <p class="message-text">Let's catch up tomorrow!</p>
+          <p class="message-time">2 hours ago</p>
+        </div>
+      </div>
+
+      <!-- New messages will be added here -->
+    </div>
+
+    <div class="message-input">
+      <input type="text" id="message-input" placeholder="Type a message..." class="input-field">
+      <button class="send-button" id="send-button">Send</button>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById("send-button").addEventListener("click", function () {
+      let messageText = document.getElementById("message-input").value;
+      if (messageText.trim() !== "") {
+        let messageList = document.getElementById("message-list");
+
+        let newMessage = document.createElement("div");
+        newMessage.classList.add("message");
+
+        // Set the fixed username and avatar
+        let username = "TrueSelf_Vibes";
+        let avatarSrc = "profile.jpg"; // Replace with the actual image source for the avatar
+
+        newMessage.innerHTML = `
+      <div class="message-avatar">
+        <img src="${avatarSrc}" alt="User Avatar" class="avatar">
+      </div>
+      <div class="message-content">
+        <p class="message-username">${username}</p>
+        <p class="message-text">${messageText}</p>
+        <p class="message-time">Just now</p>
+      </div>
+    `;
+
+        messageList.appendChild(newMessage);
+        document.getElementById("message-input").value = ""; // Clear input field
+      }
+    });
+  </script>
+</body>
+
+</html>

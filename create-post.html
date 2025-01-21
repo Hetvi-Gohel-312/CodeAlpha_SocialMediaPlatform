@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Post</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Form Container */
+        .form-container {
+            width: 30%;
+            margin: 200px auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            text-align: center;
+            color: #e1306c;
+            margin-bottom: 20px;
+        }
+
+        /* Input Fields */
+        .input-field {
+            margin-bottom: 15px;
+        }
+
+        textarea {
+            width: 100%;
+            padding: 10px;
+            font-size: 14px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            height: 150px;
+            resize: vertical;
+        }
+
+        input[type="file"] {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            font-size: 14px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+        }
+
+        /* Button Styling */
+        .btn {
+            background-color: #e1306c;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        .btn:hover {
+            background-color: #f9b8d4;
+        }
+
+        /* Image Preview */
+        #imagePreview {
+            margin-top: 10px;
+            max-width: 100%;
+            max-height: 300px;
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="logo">Socialize</div>
+        <ul>
+            <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+            <li><a href="create-post.html" class="active"><i class="fas fa-plus-circle"></i> Post</a></li>
+            <li><a href="message.html"><i class="fas fa-envelope"></i> Messages</a></li>
+            <li><a href="notification.html"><i class="fas fa-bell"></i> Notification</a></li>
+            <li><a href="profile.html"><i class="fas fa-user"></i> Profile</a></li>
+            <li><a href="settings.html"><i class="fas fa-cog"></i> Settings</a></li>
+            
+        </ul>
+    </nav>
+
+
+    <div class="form-container">
+        <h2>Create a New Post</h2>
+        <form id="createPostForm" enctype="multipart/form-data">
+            <div class="input-field">
+                <textarea id="postText" placeholder="What's on your mind?" required></textarea>
+            </div>
+            <div class="input-field">
+                <input type="file" id="postImage" accept="image/*">
+            </div>
+            <input type="hidden" id="user_id" value="USER_ID_HERE">
+
+            <!-- Image Preview -->
+            <img id="imagePreview" alt="Image Preview">
+            <button type="submit" class="btn">Post</button>
+        </form>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const postForm = document.getElementById('createPostForm');
+            const postText = document.getElementById('postText');
+            const postImage = document.getElementById('postImage');
+
+            postForm.addEventListener('submit', async function (event) {
+                event.preventDefault(); // Prevent form submission
+
+                const postContent = postText.value.trim();
+                const image = postImage.files[0];
+                const userId = document.getElementById('user_id').value;  // Get user_id
+
+                if (!postContent) {
+                    alert('Please write something in the post!');
+                    return;
+                }
+
+                const formData = new FormData();
+                formData.append('postContent', postContent);
+                if (image) formData.append('image', image);
+                formData.append('user_id', userId);  // Add user_id
+
+                try {
+                    const response = await fetch('http://localhost:3000/create-post', {
+                        method: 'POST',
+                        body: formData
+                    });
+
+                    const result = await response.json();
+                    console.log(result);  // This will log the full response from the server
+
+                    if (result.success) {
+                        alert('Post created successfully!');
+                        postForm.reset();  // Reset the form
+                        imagePreview.style.display = 'none';  // Hide the image preview
+                        window.location.href = 'index.html'; // Redirect to home page after posting
+                    } else {
+                        alert('Error creating post: ' + result.message || 'Unknown error');
+                    }
+                } catch (error) {
+                    console.error('Error:', error);
+                    alert('An error occurred while posting.');
+                }
+            });
+
+        });
+    </script>
+
+</body>
+
+</html>

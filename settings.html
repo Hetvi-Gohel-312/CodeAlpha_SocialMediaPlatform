@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings - Social Media</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Basic Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f7f7f7;
+            color: #333;
+        }
+
+        /* Settings Section */
+        .settings-container {
+            background-color: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            width: 400px;
+            margin: 200px auto;
+        }
+
+        h2 {
+            text-align: center;
+            color: #e1306c;
+            margin-bottom: 20px;
+        }
+
+        .settings-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .settings-list li {
+            margin: 15px 0;
+            font-size: 18px;
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+
+        }
+
+        .settings-list a {
+            text-decoration: none;
+            color: #333;
+            transition: color 0.3s;
+        }
+
+        .settings-list a:hover {
+            color: #ff4d4d;
+        }
+
+        /* Logout Button */
+        .logout-btn {
+            background-color: #e1306c;
+            color: white;
+            padding: 20px;
+            width: 100%;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 20px;
+        }
+
+        .logout-btn:hover {
+            background-color: #f9b8d4;
+        }
+
+        /* Floating Button for Create Post */
+        .floating-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #e1306c;
+            color: white;
+            border-radius: 50%;
+            padding: 15px;
+            font-size: 24px;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s ease;
+        }
+
+        .floating-btn:hover {
+            background-color: #d31356;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="logo">Socialize</div>
+        <ul>
+            <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+            <li><a href="message.html"><i class="fas fa-envelope"></i> Messages</a></li>
+            <li><a href="notification.html"><i class="fas fa-bell"></i> Notification</a></li>
+            <li><a href="profile.html"><i class="fas fa-user"></i> Profile</a></li>
+            <li><a href="settings.html" class="active"><i class="fas fa-cog"></i> Settings</a></li>
+            
+        </ul>
+    </nav>
+
+    <!-- Main Content: Settings Section -->
+    <div class="settings-container">
+        <h2>Settings</h2>
+        <ul class="settings-list">
+            <li><a href="#">Personal Information</a></li>
+            <li><a href="#">Privacy</a></li>
+            <li><a href="#">Language</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Help</a></li>
+            <li><a href="#">Add Account</a></li>
+            <li><button class="logout-btn" id="logout-btn">Logout</button></li>
+        </ul>
+    </div>
+
+    <script>
+
+        // Function to dynamically load posts (for other pages)
+        async function loadPosts() {
+            try {
+                const response = await fetch('http://localhost:3000/posts');
+                const posts = await response.json();
+
+                const postsContainer = document.getElementById('postsContainer');
+                postsContainer.innerHTML = ''; // Clear existing posts
+
+                posts.forEach(post => {
+                    const newPost = document.createElement('div');
+                    newPost.classList.add('post');
+
+                    newPost.innerHTML = `
+                        <div class="post-header">
+                            <img src="https://via.placeholder.com/40" alt="User Avatar" class="avatar">
+                            <p class="username">${post.username}</p>
+                        </div>
+                        <img src="${post.postImage || 'https://via.placeholder.com/500x500'}" alt="Post Image" class="post-image">
+                        <div class="post-actions">
+                            <button onclick="likePost(this)">Like</button>
+                            <button onclick="commentPost()">Comment</button>
+                        </div>
+                        <div class="post-content">
+                            <p class="likes-count">${post.likes} Likes</p>
+                            <p class="post-description">${post.description}</p>
+                        </div>
+                    `;
+
+                    postsContainer.appendChild(newPost);
+                });
+            } catch (error) {
+                console.error('Error fetching posts:', error);
+            }
+        }
+
+        // Load posts when the page loads
+        window.onload = loadPosts;
+        // Logout functionality
+        document.getElementById('logout-btn').addEventListener('click', function () {
+            // Redirect to login page after logout
+            window.location.href = 'login.html';
+        });
+    </script>
+</body>
+</html>

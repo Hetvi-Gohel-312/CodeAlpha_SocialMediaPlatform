@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - Social Media</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+
+<body>
+
+    <body>
+        <nav class="navbar">
+            <div class="logo">Socialize</div>
+            <ul>
+                <li><a href="index.html" class="active"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="create-post.html"><i class="fas fa-plus-circle"></i> Post</a></li>
+                <li><a href="message.html"><i class="fas fa-envelope"></i> Messages</a></li>
+                <li><a href="notification.html"><i class="fas fa-bell"></i> Notification</a></li>
+                <li><a href="profile.html"><i class="fas fa-user"></i> Profile</a></li>
+                <li><a href="settings.html"><i class="fas fa-cog"></i> Settings</a></li>
+                
+            </ul>
+        </nav>
+
+        <!-- Hero Section -->
+        <header class="hero">
+            <h1>Welcome to Socialize</h1>
+            <p>Connect with friends and the world around you!</p>
+            <a href="#" class="cta-btn">Get Started</a>
+        </header>
+        <!-- Main Content: Posts Grid -->
+        <section class="feed">
+            <!-- Default Post 1 -->
+            <div class="post">
+                <div class="post-header">
+                    <img src="dp 1.jpg" alt="User Avatar" class="avatar">
+                    <p class="username">SoulSync💫</p>
+                </div>
+                <p class="post-description">Be your own priority💫</p>
+                <img src="Post 1.jpg" alt="Post Image" class="post-image">
+                <div class="post-actions">
+                    <button onclick="likePost(this)"><i class="fas fa-thumbs-up"></i> Like</button>
+                    <button onclick="commentPost()"><i class="fas fa-comment"></i>Comment</button>
+                    <button><i class="fas fa-share"></i> Share</button>
+                </div>
+                <div class="post-content">
+                    <p class="likes-count">100 Likes</p>
+                </div>
+            </div>
+            <!-- Default Post 2 -->
+            <div class="post">
+                <div class="post-header">
+                    <img src="dp 2.jpg" alt="User Avatar" class="avatar">
+                    <p class="username">InnerGlow✨</p>
+                </div>
+                <p class="post-description">Own your journey✨</p>
+                <img src="Post 2.jpg" alt="Post Image" class="post-image">
+                <div class="post-actions">
+                    <button onclick="likePost(this)"><i class="fas fa-thumbs-up"></i> Like</button>
+                    <button onclick="commentPost()"><i class="fas fa-comment"></i>Comment</button>
+                    <button><i class="fas fa-share"></i> Share</button>
+                </div>
+                <div class="post-content">
+                    <p class="likes-count">200 Likes</p>
+                </div>
+            </div>
+            <!-- Default Post 3 -->
+            <div class="post">
+                <div class="post-header">
+                    <img src="dp 3.jpg" alt="User Avatar" class="avatar">
+                    <p class="username">Heart_killer💫</p>
+                </div>
+                <p class="post-description">Winter Charm💫</p>
+                <img src="Post 3.jpg" alt="Post Image" class="post-image">
+                <div class="post-actions">
+                    <button onclick="likePost(this)"><i class="fas fa-thumbs-up"></i> Like</button>
+                    <button onclick="commentPost()"><i class="fas fa-comment"></i>Comment</button>
+                    <button><i class="fas fa-share"></i> Share</button>
+                </div>
+                <div class="post-content">
+                    <p class="likes-count">150 Likes</p>
+
+                </div>
+            </div>
+            <!-- Default Post 4 -->
+            <div class="post">
+                <div class="post-header">
+                    <img src="dp 2.jpg" alt="User Avatar" class="avatar">
+                    <p class="username">UrbanStyleHub<< /p>
+                </div>
+                <p class="post-description">Winter Charm💫</p>
+                <img src="Post 4.jpg" alt="Post Image" class="post-image">
+                <div class="post-actions">
+                    <button onclick="likePost(this)"><i class="fas fa-thumbs-up"></i> Like</button>
+                    <button onclick="commentPost()"><i class="fas fa-comment"></i>Comment</button>
+                    <button><i class="fas fa-share"></i> Share</button>
+                </div>
+                <div class="post-content">
+                    <p class="likes-count">100 Likes</p>
+                </div>
+            </div>
+            <!-- Default Post 5 -->
+            <div class="post">
+                <div class="post-header">
+                    <img src="dp 1.jpg" alt="User Avatar" class="avatar">
+                    <p class="username">SelfSoulJourney💫</p>
+                </div>
+                <p class="post-description">Winter Charm💫</p>
+                <img src="Post 5.jpg" alt="Post Image" class="post-image">
+                <div class="post-actions">
+                    <button onclick="likePost(this)"><i class="fas fa-thumbs-up"></i> Like</button>
+                    <button onclick="commentPost()"><i class="fas fa-comment"></i>Comment</button>
+                    <button><i class="fas fa-share"></i> Share</button>
+                </div>
+                <div class="post-content">
+                    <p class="likes-count">100 Likes</p>
+                </div>
+            </div>
+            <!-- Default Post 6 -->
+            <div class="post">
+                <div class="post-header">
+                    <img src="dp 2.jpg" alt="User Avatar" class="avatar">
+                    <p class="username">ClassicManFits</p>
+                </div>
+                <p class="post-description">Winter Charm💫</p>
+                <img src="Post 6.jpg" alt="Post Image" class="post-image">
+                <div class="post-actions">
+                    <button onclick="likePost(this)"><i class="fas fa-thumbs-up"></i> Like</button>
+                    <button onclick="commentPost()"><i class="fas fa-comment"></i>Comment</button>
+                    <button><i class="fas fa-share"></i> Share</button>
+                </div>
+                <div class="post-content">
+                    <p class="likes-count">100 Likes</p>
+
+                </div>
+            </div>
+            <!-- Default Post 7 -->
+            <div class="post">
+                <div class="post-header">
+                    <img src="dp 1.jpg" alt="User Avatar" class="avatar">
+                    <p class="username">VibeWithin</p>
+                </div>
+                <p class="post-description">Be your own priority💫</p>
+                <img src="Post 7.jpg" alt="Post Image" class="post-image">
+                <div class="post-actions">
+                    <button onclick="likePost(this)"><i class="fas fa-thumbs-up"></i> Like</button>
+                    <button onclick="commentPost()"><i class="fas fa-comment"></i>Comment</button>
+                    <button><i class="fas fa-share"></i> Share</button>
+                </div>
+                <div class="post-content">
+                    <p class="likes-count">100 Likes</p>
+
+                </div>
+            </div>
+            <!-- Default Post 8 -->
+            <div class="post">
+                <div class="post-header">
+                    <img src="dp 3.jpg" alt="User Avatar" class="avatar">
+                    <p class="username">PastelFashionista💫</p>
+                </div>
+                <p class="post-description">Be your own priority💫</p>
+                <img src="Post 8.jpg" alt="Post Image" class="post-image">
+                <div class="post-actions">
+                    <button onclick="likePost(this)"><i class="fas fa-thumbs-up"></i> Like</button>
+                    <button onclick="commentPost()"><i class="fas fa-comment"></i>Comment</button>
+                    <button><i class="fas fa-share"></i> Share</button>
+                </div>
+                <div class="post-content">
+                    <p class="likes-count">100 Likes</p>
+
+                </div>
+            </div>
+            <!-- Default Post 9 -->
+            <!-- Default Post 8 -->
+            <div class="post">
+                <div class="post-header">
+                    <img src="dp 3.jpg" alt="User Avatar" class="avatar">
+                    <p class="username">GlamourWardrobe</p>
+                </div>
+                <p class="post-description">Be your own priority💫</p>
+                <img src="Post 9.jpg" alt="Post Image" class="post-image">
+                <div class="post-actions">
+                    <button onclick="likePost(this)"><i class="fas fa-thumbs-up"></i> Like</button>
+                    <button onclick="commentPost()"><i class="fas fa-comment"></i>Comment</button>
+                    <button><i class="fas fa-share"></i> Share</button>
+                </div>
+                <div class="post-content">
+                    <p class="likes-count">100 Likes</p>
+
+                </div>
+            </div>
+            </div>
+            </div>
+            <!-- More posts can go here -->
+        </section>
+
+
+        <script>
+            // Function to dynamically load posts
+            async function loadPosts() {
+                try {
+                    const response = await fetch('http://localhost:3000/posts');
+                    const posts = await response.json();
+
+                    const postsContainer = document.getElementById('postsContainer');
+                    postsContainer.innerHTML = ''; // Clear existing posts
+
+                    posts.forEach(post => {
+                        const newPost = document.createElement('div');
+                        newPost.classList.add('post');
+
+                        newPost.innerHTML = `
+                    <div class="post-header">
+                        <img src="https://via.placeholder.com/40" alt="User Avatar" class="avatar">
+                        <p class="username">${post.username}</p>
+                    </div>
+                    <img src="${post.postImage || 'https://via.placeholder.com/500x500'}" alt="Post Image" class="post-image">
+                    <div class="post-actions">
+                        <button onclick="likePost(this)">Like</button>
+                        <button onclick="commentPost()">Comment</button>
+                    </div>
+                    <div class="post-content">
+                        <p class="likes-count">${post.likes} Likes</p>
+                        <p class="post-description">${post.description}</p>
+                    </div>
+                `;
+
+                        postsContainer.appendChild(newPost);
+                    });
+                } catch (error) {
+                    console.error('Error fetching posts:', error);
+                }
+            }
+
+            // Load posts when the page loads
+            window.onload = loadPosts;
+
+            // Function for liking a post
+            function likePost(button) {
+                const postContent = button.parentElement.nextElementSibling; // Get post content
+                const likesCount = postContent.querySelector('.likes-count'); // Find likes count element
+
+                let currentLikes = parseInt(likesCount.textContent); // Parse current likes
+                likesCount.textContent = `${++currentLikes} Likes`; // Increment and update text
+            }
+
+            // Function for commenting on a post
+            function commentPost() {
+                const comment = prompt("Enter your comment:");
+                if (comment) alert("Commented: " + comment);
+            }
+        </script>
+    </body>
+
+</html>

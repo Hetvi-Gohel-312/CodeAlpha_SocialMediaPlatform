@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile - Social Media</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f2f5;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 650px;
+            margin: 100px auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .profile-header {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .profile-pic {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            border: 2px solid #e1306c;
+        }
+
+        .profile-info {
+            flex: 1;
+        }
+
+        .username {
+            font-size: 24px;
+            font-weight: bold;
+            color: #e1306c;
+        }
+
+        .bio {
+            font-size: 14px;
+            color: #333;
+            margin-top: 5px;
+        }
+
+        .stats {
+            display: flex;
+            justify-content: space-between;
+            margin: 20px 10px;
+            gap: 20px;
+        }
+
+        .stats div {
+            text-align: center;
+        }
+
+        .stats .number {
+            font-size: 18px;
+            font-weight: bold;
+            color: #e1306c;
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        .stats div span {
+            font-size: 18px;
+        }
+
+        .edit-profile-btn {
+            display: block;
+            width: 100%;
+            background-color: #f0f2f5;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 10px 0;
+            font-size: 14px;
+            text-align: center;
+            cursor: pointer;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .edit-profile-btn:hover {
+            background-color: #e1306c;
+            color: white;
+        }
+
+        .edit-form {
+            display: none;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .edit-form input {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+
+        .edit-form button {
+            padding: 10px;
+            background-color: #e1306c;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .edit-form button:hover {
+            background-color: #c12457;
+        }
+
+        .posts-header {
+            font-size: 18px;
+            font-weight: bold;
+            color: #333;
+            margin-top: 30px;
+        }
+
+        .post {
+            margin-bottom: 20px;
+            padding: 15px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .posts-header {
+            text-align: center;
+        }
+
+        .posts-header .avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+
+        .posts-header .username {
+            font-weight: bold;
+            color: #e1306c;
+        }
+
+        .post-image {
+            width: 100%;
+            margin-top: 10px;
+            border-radius: 8px;
+        }
+
+        .post-actions {
+            margin-top: 10px;
+            display: flex;
+            gap: 10px;
+        }
+
+        .post-actions button {
+            background-color: #e1306c;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .post-actions button:hover {
+            background-color: #c12457;
+        }
+
+        .post-content {
+            margin-top: 10px;
+        }
+
+        .likes-count {
+            font-weight: bold;
+            color: #e1306c;
+        }
+
+        .post-description {
+            font-size: 14px;
+            color: #333;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="logo">Socialize</div>
+        <ul>
+            <li><a href="index.html" class="active"><i class="fas fa-home"></i> Home</a></li>
+            <li><a href="create-post.html"><i class="fas fa-plus-circle"></i> Post</a></li>
+            <li><a href="message.html"><i class="fas fa-envelope"></i> Messages</a></li>
+            <li><a href="notification.html"><i class="fas fa-bell"></i> Notification</a></li>
+            <li><a href="profile.html" class="active"><i class="fas fa-user"></i> Profile</a></li>
+            <li><a href="settings.html"><i class="fas fa-cog"></i> Settings</a></li>
+            
+        </ul>
+    </nav>
+
+
+    <div class="container">
+        <div class="profile-header">
+            <img src="profile.jpg" alt="Profile Image" class="profile-pic" id="profileImage">
+            <div class="profile-info">
+                <div class="username" id="username">TrueSelf_Vibes</div>
+                <div class="bio" id="bio">"🎯 Prioritizing me, unapologetically."</div>
+            </div>
+        </div>
+
+        <div class="stats">
+            <div>
+                <div class="number" id="postsCount">0</div>
+                <span>Posts</span>
+            </div>
+            <div>
+                <div class="number" id="followersCount">500</div>
+                <span>Followers</span>
+            </div>
+            <div>
+                <div class="number" id="followingCount">150</div>
+                <span>Following</span>
+            </div>
+        </div>
+
+        <button class="edit-profile-btn" id="editBtn">Edit Profile</button>
+
+        <div class="edit-form" id="editForm">
+            <input type="text" id="newUsername" placeholder="Enter new username" />
+            <input type="text" id="newBio" placeholder="Enter new bio" />
+            <button id="saveChangesBtn">Save Changes</button>
+        </div>
+
+        <div class="posts-header">User's Posts</div>
+        <div class="posts" id="userPosts">
+            <!-- Dynamic posts will be appended here -->
+        </div>
+    </div>
+
+    <script>
+        const editBtn = document.getElementById('editBtn');
+        const editForm = document.getElementById('editForm');
+        const newUsername = document.getElementById('newUsername');
+        const newBio = document.getElementById('newBio');
+        const saveChangesBtn = document.getElementById('saveChangesBtn');
+        const username = document.getElementById('username');
+        const bio = document.getElementById('bio');
+
+        editBtn.addEventListener('click', () => {
+            // Hide the Edit button and show the edit form
+            editBtn.style.display = 'none';
+            editForm.style.display = 'flex';
+        });
+
+        saveChangesBtn.addEventListener('click', () => {
+            // Save the new username and bio
+            username.textContent = newUsername.value || username.textContent;
+            bio.textContent = newBio.value || bio.textContent;
+
+            // Hide the edit form and show the Edit button again
+            editForm.style.display = 'none';
+            editBtn.style.display = 'block';
+        });
+
+        // Function to dynamically load user posts
+        async function loadUserPosts() {
+            try {
+                const userId = 1; // You would dynamically set this based on the logged-in user
+                const response = await fetch(`http://localhost:3000/user-posts/${userId}`);
+                const posts = await response.json();
+
+                const postsContainer = document.getElementById('userPosts');
+
+                posts.forEach(post => {
+                    const newPost = document.createElement('div');
+                    newPost.classList.add('post');
+
+                    newPost.innerHTML = `
+                <div class="post-header">
+                    <img src="https://via.placeholder.com/40" alt="User Avatar" class="avatar">
+                    <p class="username">${post.username}</p>
+                </div>
+                <img src="${post.postImage || 'https://via.placeholder.com/500x500'}" alt="Post Image" class="post-image">
+                <div class="post-actions">
+                    <button onclick="likePost()">Like</button>
+                    <button onclick="commentPost()">Comment</button>
+                </div>
+                <div class="post-content">
+                    <p class="likes-count">${post.likes} Likes</p>
+                    <p class="post-description">${post.description}</p>
+                </div>
+            `;
+
+                    postsContainer.appendChild(newPost);
+                });
+            } catch (error) {
+                console.error('Error fetching user posts:', error);
+            }
+        }
+
+        // Load posts when the page loads
+        window.onload = loadUserPosts;
+
+        // Function for liking a post
+        function likePost() {
+            // Add functionality to like posts here
+        }
+
+        // Function for commenting on a post
+        function commentPost() {
+            const comment = prompt("Enter your comment:");
+            if (comment) alert("Commented: " + comment);
+        }
+
+    </script>
+</body>
+
+</html>
